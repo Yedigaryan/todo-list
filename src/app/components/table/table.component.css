@@ -1,0 +1,61 @@
+.table-container {
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 10px 2px rgba(114, 110, 110, 0.7607843137);
+}
+
+.table-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  height: 35px;
+  background-color: rgba(128, 128, 128, 0.2509803922);
+  padding-inline: 10px;
+  border: 1.4px solid rgba(128, 128, 128, 0.368627451);
+  border-bottom: none;
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.grid-container {
+  border: 1.4px solid rgba(128, 128, 128, 0.368627451);
+  padding: 20px;
+}
+
+.grid-container__header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.grid-container__header__left {
+  width: 60%;
+}
+.grid-container__header__right {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  gap: 10px;
+}
+.grid-container__header__right :nth-child(1), .grid-container__header__right :nth-child(2) {
+  min-width: 100px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+.grid-container__header__right :nth-child(3), .grid-container__header__right :nth-child(4) {
+  width: 10%;
+  min-width: 24px;
+}
+
+@media (max-width: 960px) {
+  .grid-container__header {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=table.component.css.map */

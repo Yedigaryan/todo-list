@@ -1,0 +1,84 @@
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  height: 35px;
+  background-color: rgba(128, 128, 128, 0.2509803922);
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+}
+.navbar.navbar-mobile {
+  display: none;
+}
+.navbar > div {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding-left: 15px;
+}
+.navbar li {
+  cursor: pointer;
+}
+.navbar li.active {
+  color: red;
+}
+
+.content {
+  width: 80%;
+  margin: 10px auto;
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    height: 65px;
+  }
+  .navbar > div {
+    width: 90%;
+    justify-content: space-between;
+  }
+  .navbar.navbar-mobile {
+    display: block;
+  }
+  .navbar.navbar-default {
+    display: none;
+    height: 0;
+  }
+  .navbar .menu-items {
+    transition: all 300ms linear;
+    background: gray;
+    opacity: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+  .navbar .menu-items.show {
+    opacity: 1;
+    height: 100%;
+  }
+  .material-symbols-outlined {
+    transition: all 300ms linear;
+    opacity: 0;
+    scale: 0;
+    width: 0;
+  }
+  .material-symbols-outlined.show {
+    opacity: 1;
+    scale: 1;
+    width: 24px;
+    cursor: pointer;
+  }
+}
+
+/*# sourceMappingURL=app.component.css.map */

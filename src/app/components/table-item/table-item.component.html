@@ -1,0 +1,67 @@
+<div class="table-item__container">
+  <div class="table-item__title-container">
+    @if (isCreateMode) {
+      <mat-form-field>
+        <mat-label>TODO Title</mat-label>
+        <textarea id="title" formControlName="title" matInput placeholder="Untitled TODO"></textarea>
+        @if (form.controls['title'].hasError('maxlength')) {
+          <mat-error>Maximum 100 characters</mat-error>
+        } @else {
+          <mat-error>Title is required</mat-error>
+        }
+      </mat-form-field>
+    } @else {
+      <input class="pointer" type="checkbox" [id]="item.id" [checked]="item.isDone"
+             (change)="toggleDone(item)">
+      <label class="pointer" [class.done]="item.isDone" for="{{item.id}}">{{ item.title }}</label>
+    }
+  </div>
+  <div class="table-item__actions-container">
+    <div>
+      @if (isCreateMode) {
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input [min]='todaysDate' formControlName="expirationDate" matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-error>Date is required</mat-error>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      } @else {
+        <p class="created-at">{{ item.createdAt | date:'mediumDate' }}</p>
+      }
+    </div>
+    <div>
+      @if (isCreateMode) {
+        <mat-form-field>
+          <mat-label>Choose a time</mat-label>
+          <input formControlName="expirationTime" matInput class="pointer" [format]="24"
+                 [ngxTimepicker]="pickerTime">
+          <ngx-material-timepicker [ESC]="true" #pickerTime></ngx-material-timepicker>
+        </mat-form-field>
+      } @else {
+        <p class="expire-at" [ngClass]="isToday(item.expireAt) ? 'time-left' : 'expire-at'"
+           [class.red]="shouldHighlight(item)">
+          {{
+            isToday(item.expireAt) ?
+              (getExpirationTime(item) | date: "hh'h' mm'm' ss's'") :
+              (item.expireAt | date: 'mediumDate')
+          }}
+        </p>
+      }
+    </div>
+    <div>
+      @if (!isCreateMode) {
+        <span DebounceClick [ngClass]="{'favorite': item.isFavorite}" (click)="toggleFavorite(item)"
+              class="material-symbols-outlined pointer">
+          favorite
+          </span>
+      }
+    </div>
+    <div>
+      @if (!isCreateMode) {
+        <span (click)="deleteItem(item)" class="delete-icon pointer">x</span>
+      }
+    </div>
+  </div>
+</div>

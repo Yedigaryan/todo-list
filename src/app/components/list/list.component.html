@@ -1,0 +1,4 @@
+<app-table [isFavoriteMode]="isFavorite" [tableItems]="(storage.getTodaysTodos() | async) ?? []"
+           name="Today TODO's"></app-table>
+<app-table [isFavoriteMode]="isFavorite" [tableItems]="(storage.getOtherTodos() | async) ?? []"
+           name="My TODO List"></app-table>

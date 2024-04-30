@@ -1,0 +1,28 @@
+<div class="table-container">
+  <div class="table-title-container">
+    <h3 class="table-title">{{ tableName }}</h3>
+    @if (isCreateMode) {
+      <button [routerLink]="['../']">Back</button>
+      <button (click)="addTodo()">Create</button>
+    }
+  </div>
+  <div class="grid-container">
+    <div class="grid-container__header">
+      <div class="grid-container__header__left"></div>
+      <div class="grid-container__header__right">
+        <div><span>{{ isCreateMode ? 'Expiration Date' : 'Created At' }}</span></div>
+        <div>
+          <span>{{ isCreateMode ? 'Expiration' : tableName.toLowerCase().includes('today') ? 'Time Left' : 'Expiration' }}</span>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="grid-container__content">
+      @for (item of isFavoriteMode ? favoriteTableItems : tableItems; track item.id) {
+        <app-table-item [isCreateMode]="isCreateMode" [todo]="item"></app-table-item>
+      }
+    </div>
+  </div>
+</div>
+

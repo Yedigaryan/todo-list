@@ -1,0 +1,68 @@
+@import "../../../assets/styles/variables";
+
+.table-container {
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 10px 2px $shadow-color;
+}
+
+.table-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  height: 35px;
+  background-color: $background-color;
+  padding-inline: 10px;
+  border: 1.4px solid $border-color;
+  border-bottom: none;
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.grid-container {
+  border: 1.4px solid $border-color;
+  padding: 20px;
+}
+
+.grid-container__header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  &__left {
+    width: 60%;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    gap: 10px;
+
+    & :nth-child(1), & :nth-child(2) {
+      min-width: 100px;
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    & :nth-child(3), & :nth-child(4) {
+      width: 10%;
+      min-width: 24px;
+    }
+  }
+
+}
+
+@media (max-width: $layout-breakpoint-small) {
+  .grid-container__header {
+    display: none;
+  }
+}
+
+

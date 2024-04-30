@@ -1,0 +1,103 @@
+.table-item__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  border: 1px solid rgba(128, 128, 128, 0.368627451);
+  padding: 10px;
+}
+
+.table-item__title-container {
+  width: 60%;
+  min-width: 40%;
+  display: flex;
+}
+.table-item__title-container input {
+  width: 20px;
+}
+.table-item__title-container label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: calc(100% - 20px);
+}
+.table-item__title-container label.done {
+  text-decoration: line-through;
+}
+
+.table-item__actions-container {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+.table-item__actions-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.table-item__actions-container > div:nth-child(1), .table-item__actions-container > div:nth-child(2) {
+  min-width: 100px;
+  width: 40%;
+}
+.table-item__actions-container > div:nth-child(3), .table-item__actions-container > div:nth-child(4) {
+  width: 10%;
+  min-width: 24px;
+}
+
+.delete-icon {
+  width: 20px;
+  height: 25px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-outlined.favorite {
+  font-variation-settings: "FILL" 1, "opsz" 24;
+}
+
+.red {
+  color: red;
+}
+
+@media (max-width: 960px) {
+  .table-item__container {
+    flex-wrap: wrap;
+  }
+  .table-item__title-container {
+    width: 100%;
+  }
+  .table-item__actions-container {
+    width: 100%;
+  }
+  :before {
+    font-weight: bold;
+  }
+  .created-at:before {
+    content: "Created At: ";
+  }
+  .expire-at:before {
+    content: "Expiration: ";
+  }
+  .time-left:before {
+    color: black;
+    content: "Time left: ";
+  }
+}
+@media (max-width: 560px) {
+  .table-item__actions-container {
+    flex-wrap: wrap;
+  }
+  .table-item__actions-container > div:nth-child(1), .table-item__actions-container > div:nth-child(2) {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=table-item.component.css.map */
